@@ -1,0 +1,42 @@
+"""
+Follow_the_pattern.py: Ask's user if they want to start, then shows 6 numbers,
+                    then user has to type the numbers in that order.
+
+12/14/2021
+"""
+
+import time
+import random
+
+def main():
+    start = input("Would you like to start the game? (press y to start, n to quit): ")
+
+    while start == "y":
+        random_digits = get_random_numbers()
+
+        answer = input("Enter the correct order of numbers as shown(no spaces): ")
+
+        if answer == random_digits:
+            print("That's correct!")
+        else:
+            print("That was not the correct pattern")
+            print("Correct Answer: ", random_digits)
+
+        start = input("Would you like to continue? ( Enter y to continue, n to quit): ")
+
+    print("Game Ended")
+
+def get_random_numbers():
+    random_digits = ""
+
+    for limit_of_numbers in range(1,7):
+
+        random_numbers = random.randint(1,9)
+
+        print(random_numbers)
+        time.sleep(1)
+
+        random_digits += str(random_numbers)
+
+    return random_digits
+main()
